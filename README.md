@@ -20,21 +20,39 @@
 
 # Project Proposal:
 Codename: Crash-Course
+
 Project title: Seattle Collisions and Correlations
+
 Authors: Chris Petersen
+
 Affiliation:	INFO-201: Technical Foundations of Informatics - The Information School - University of Washington
+
 Date:	Autumn 2022
+
 Abstract:
+
 Keywords:
+
 Introduction:
+
 Problem Domain:
+
 Research Questions:
+
 The Dataset:
+
 Expected Implications:
+
 Limitations:
+
 Findings:
+
 Discussion:
+
 Conclusion:
+
 Acknowledgements:
+
 References:
+
 Appendix A: Questions for TA/Instructor
