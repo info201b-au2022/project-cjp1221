@@ -7,7 +7,7 @@ collisions <- collisions %>%
   select(-c(SEGLANEKEY, EXCEPTRSNDESC, EXCEPTRSNCODE, COLDETKEY, SDOT_COLCODE))
 
 lat_lon <- read.csv("../data/SDOT_other.csv", stringsAsFactors = FALSE)
-#select lat, long, and incident key for merging
+#select lat, long, and incident key for joining
 lat_lon <- lat_lon %>%
   select(collision_incident_key, collision_lat, collision_long)
 
