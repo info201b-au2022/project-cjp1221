@@ -1,18 +1,23 @@
 library("tidyverse")
 
 collisions <- read.csv("../data/SDOT_Collisions.csv", stringsAsFactors = FALSE)
+# rename incident key for joining, remove some unused columns
 collisions <- collisions %>%
   rename(collision_incident_key = INCKEY) %>%
-  select(-c(SEGLANEKEY, EXCEPTRSNDESC, EXCEPTRSNCODE, COLDETKEY, SDOT_COLCODE, SEVERITYDESC))
+  select(-c(SEGLANEKEY, EXCEPTRSNDESC, EXCEPTRSNCODE, COLDETKEY, SDOT_COLCODE))
+
 lat_lon <- read.csv("../data/SDOT_other.csv", stringsAsFactors = FALSE)
+#select lat, long, and incident key for merging
 lat_lon <- lat_lon %>%
   select(collision_incident_key, collision_lat, collision_long)
+
 View(collisions)
 View(lat_lon)
 
-joined <- left_join(collisions, lat_lon, by = "collision_incident_key")
+joined <- left_join(collisions, lat_lon, by = "collision_incident_key") %>%
+  filter(!is.na(collision_lat))
 View(joined)
-# write.csv(joined,"../data/SDOT_collisions_lat_long.csv", row.names = FALSE)
+write.csv(joined,"../data/SDOT_collisions_lat_long.csv", row.names = FALSE)
 
 wrangle_data <- function(joined) {
   #select specific variables - incdate, lat,long, location, underinfl
@@ -25,7 +30,7 @@ wrangle_data <- function(joined) {
       lat = collision_lat,
       long = collision_long
     ) %>%
-    filter(!is.na(lat), !is.na(DUI)) %>% ##why is na DUI not working?
+    filter(!is.na(DUI)) %>% ##why is na DUI not working?
     mutate(date = as.Date(date)) %>%
     arrange(desc(date)) #arrange by date
   return(new_df)
