@@ -12,10 +12,10 @@ View(lat_lon)
 
 joined <- left_join(collisions, lat_lon, by = "collision_incident_key")
 View(joined)
-write.csv(joined,"../data/SDOT_collisions_lat_long.csv", row.names = FALSE)
+# write.csv(joined,"../data/SDOT_collisions_lat_long.csv", row.names = FALSE)
 
 wrangle_data <- function(joined) {
-  #select specific variables - incdate, x,y, location, underinfl
+  #select specific variables - incdate, lat,long, location, underinfl
   new_df <- joined %>% 
     select(collision_incident_key, INCDATE, LOCATION, UNDERINFL, collision_lat, collision_long) %>%
     rename(
@@ -25,7 +25,7 @@ wrangle_data <- function(joined) {
       lat = collision_lat,
       long = collision_long
     ) %>%
-    filter(!is.na(lat), !is.na(DUI)) %>% ##why is na DUI this not working?
+    filter(!is.na(lat), !is.na(DUI)) %>% ##why is na DUI not working?
     mutate(date = as.Date(date)) %>%
     arrange(desc(date)) #arrange by date
   return(new_df)
@@ -38,7 +38,7 @@ View(DUI_collisions)
 state_shape <- map_data("state")
 View(state_shape)
 
-# Create a map of the continental U.S.
+# Create a map of the continental U.S. and map longs/lats
 seattle_map <- ggplot(state_shape) +
   geom_polygon( 
     mapping = aes(x = long, y= lat, group = group),
