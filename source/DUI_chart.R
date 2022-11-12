@@ -1,30 +1,42 @@
 library("tidyverse")
 
 collisions <- read.csv("../data/SDOT_Collisions.csv", stringsAsFactors = FALSE)
-view(collision)
+collisions <- collisions %>%
+  rename(collision_incident_key = INCKEY) %>%
+  select(-c(SEGLANEKEY, EXCEPTRSNDESC, EXCEPTRSNCODE, COLDETKEY, SDOT_COLCODE, SEVERITYDESC))
+lat_lon <- read.csv("../data/SDOT_other.csv", stringsAsFactors = FALSE)
+lat_lon <- lat_lon %>%
+  select(collision_incident_key, collision_lat, collision_long)
+View(collisions)
+View(lat_lon)
 
-wrangle_data <- function(collisions) {
+joined <- left_join(collisions, lat_lon, by = "collision_incident_key")
+View(joined)
+write.csv(joined,"../data/SDOT_collisions_lat_long.csv", row.names = FALSE)
+
+wrangle_data <- function(joined) {
   #select specific variables - incdate, x,y, location, underinfl
-  new_df <- collisions %>% 
-    select(X, Y, INCDATE, LOCATION, UNDERINFL) %>%
+  new_df <- joined %>% 
+    select(collision_incident_key, INCDATE, LOCATION, UNDERINFL, collision_lat, collision_long) %>%
     rename(
-      lat = X,
-      long = Y,
-      street = LOCATION,
+      location = LOCATION,
       DUI = UNDERINFL,
-      date = INCDATE
+      date = INCDATE,
+      lat = collision_lat,
+      long = collision_long
     ) %>%
-    filter(!is.na(DUI)) %>% ########### why is this not working? ###########
+    filter(!is.na(lat), !is.na(DUI)) %>% ##why is na DUI this not working?
     mutate(date = as.Date(date)) %>%
     arrange(desc(date)) #arrange by date
   return(new_df)
 }
-DUI_collisions <- wrangle_data(collisions)
+DUI_collisions <- wrangle_data(joined)
 View(DUI_collisions)
 
 # import seattle map?
 ## currently map of US
 state_shape <- map_data("state")
+View(state_shape)
 
 # Create a map of the continental U.S.
 seattle_map <- ggplot(state_shape) +
@@ -36,11 +48,10 @@ seattle_map <- ggplot(state_shape) +
   ) + 
   geom_point(  # map collisions by long and lat
     data = DUI_collisions, 
-    mapping = aes(x=lon, y=lat),
+    mapping = aes(x=long, y=lat),
     color = "red"
   ) +
   coord_map()
 
 seattle_map
-
 
