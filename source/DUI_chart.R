@@ -1,8 +1,9 @@
 library(ggmap)
 library(tidyverse)
 library(ggplot2)
+library(leaflet)
+#make sure to set working directory to source file location first
 
-#make sure to set working directory to source file location
 collisions <- read.csv("../data/SDOT_Collisions.csv", stringsAsFactors = FALSE)
 # rename incident key for joining, remove some unused columns
 collisions <- collisions %>%
@@ -41,6 +42,33 @@ wrangle_data <- function(joined) {
 DUI_collisions <- wrangle_data(joined)
 View(DUI_collisions)
 
+num_DUI <- DUI_collisions %>% # order locations by number of DUIs
+  count(location) %>%
+  arrange(-n)
+View(num_DUI)
+
+six_DUIs <- num_DUI %>%
+  filter(n >= 6)
+View(six_DUIs)
+
+six_DUI_collisions <- left_join(six_DUIs, DUI_collisions, by = "location") %>%
+  filter(!str_detect(location, "BATTERY ST TUNNEL"))
+View(six_DUI_collisions)
+
+crashes_color <- colorFactor(palette = "Set3", domain = six_DUI_collisions$n)
+
+leaflet(data = six_DUI_collisions) %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  setView(lng = -122.33, lat = 47.60, zoom = 10) %>%
+  addCircles(
+    lat = ~lat,
+    lng = ~long,
+    popup = ~location,
+    radius = 10
+  )
+
+
+## Unused code
 # map of washington
 washington <- map_data("state") %>%
   subset(region == "washington") 
@@ -51,6 +79,14 @@ long_min <- min(DUI_collisions$long, na.rm = T)
 lat_max <- max(DUI_collisions$lat, na.rm = T)
 lat_min <- min(DUI_collisions$lat, na.rm = T)
 
+blank_theme <- theme(
+  axis.text = element_blank(),
+  axis.line = element_blank(),
+  axis.ticks = element_blank(),
+  panel.border = element_blank(),
+  panel.grid = element_blank(),
+  axis.title = element_blank()
+)
 
 seattle_map <- ggplot(washington) +
   geom_polygon( 
@@ -60,15 +96,13 @@ seattle_map <- ggplot(washington) +
     size  = .1, 
   ) + 
   geom_point(  # map collisions by long and lat
-    data = DUI_collisions, 
-    mapping = aes(x=long, y=lat),
-    color = "red"
+    data = seven_DUI_collisions, 
+    mapping = aes(x=long, y=lat, color = n),
+    alpha = .3
   ) +
   coord_fixed( #set long/lat limits to zoom in on the Seattle data
-    xlim = c(-122.45, -122.2),
-    ylim = c(47.45, 47.75),
-    ratio = 1.3
-  )
-
+    xlim = c(-122.42, -122.24),
+    ylim = c(47.51, 47.74)
+  ) 
+#blank_theme
 seattle_map
-
