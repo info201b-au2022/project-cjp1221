@@ -3,7 +3,7 @@ library(ggplot2)
 library(leaflet)
 #make sure to set working directory to source file location first
 
-collisions <- read.csv("../data/SDOT_Collisions.csv", stringsAsFactors = FALSE)
+collisions <- read.csv("../data/SDOT_collisions.csv", stringsAsFactors = FALSE)
 # rename incident key for joining, remove some unused columns
 collisions <- collisions %>%
   rename(collision_incident_key = INCKEY) %>%
