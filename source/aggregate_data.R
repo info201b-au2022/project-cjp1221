@@ -73,7 +73,7 @@ seattle_collisions_weather_lat_long <- seattle_collisions_weather_lat_long %>%
     "Incident Key" = collision_incident_key
   )
 
-#reorganizing columns for flow
+#reorganizing columns for flow NOT SURE WHAT THIS DID SORRY
 # temp <- seattle_collisions_weather_lat_long[, c(1, 7, 6, 11, 18, 5, 2, 4, 3, 10, 14, 9, 15, 8, 12, 13, 16, 17)]
 # seattle_collisions_weather_lat_long <- temp
 View(seattle_collisions_weather_lat_long)
