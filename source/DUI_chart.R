@@ -19,7 +19,7 @@ View(collisions)
 View(lat_lon)
 
 joined <- left_join(collisions, lat_lon, by = "collision_incident_key") %>%
-  filter(!is.na(collision_lat))
+  filter(!is.na(collision_lat)) # rows with lat/long data
 View(joined)
 # write.csv(joined,"../data/SDOT_collisions_lat_long.csv", row.names = FALSE)
 
@@ -34,7 +34,7 @@ wrangle_data <- function(joined) {
       lat = collision_lat,
       long = collision_long
     ) %>%
-    filter(DUI == "Y") %>% #filter for DUIs
+    filter(DUI == "Y") %>% #filter for DUIs (after 2010)
     mutate(date = as.Date(date)) %>%
     arrange(desc(date)) #arrange by date
   return(new_df)
@@ -52,21 +52,40 @@ six_DUIs <- num_DUI %>%
 View(six_DUIs)
 
 six_DUI_collisions <- left_join(six_DUIs, DUI_collisions, by = "location") %>%
-  filter(!str_detect(location, "BATTERY ST TUNNEL"))
+  filter(!str_detect(location, "BATTERY ST TUNNEL")) # this road no longer exists
 View(six_DUI_collisions)
 
-crashes_color <- colorFactor(palette = "Set3", domain = six_DUI_collisions$n)
+getColor <- function(six_DUI_collisions) {
+  sapply(six_DUI_collisions$n, function(n) {
+    if(n == 6) {
+      "orange"
+    } else if(n <= 8) {
+      "red"
+    } else {
+      "darkred"
+    } })
+}
 
 leaflet(data = six_DUI_collisions) %>%
-  addProviderTiles("CartoDB.Positron") %>%
+  addProviderTiles("CartoDB.Positron") %>% # can also use OpenStreetMap
   setView(lng = -122.33, lat = 47.60, zoom = 10) %>%
   addCircles(
     lat = ~lat,
     lng = ~long,
-    popup = ~location,
-    radius = 10
-  )
+    label = ~location,
+    radius = 20,
+    color = ~getColor(six_DUI_collisions)
+  ) 
 
+# if i can get color palette working
+# %>%
+  addLegend(
+    position = "bottomright",
+    title = "Seattle DUI Collisions",
+    pal = color_palette,
+    values = ~n,
+    opacity = 1
+  )
 
 ## Unused code
 # map of washington
