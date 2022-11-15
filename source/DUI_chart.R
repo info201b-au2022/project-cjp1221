@@ -15,12 +15,12 @@ lat_lon <- read.csv("../data/SDOT_other.csv", stringsAsFactors = FALSE)
 lat_lon <- lat_lon %>%
   select(collision_incident_key, collision_lat, collision_long)
 
-View(collisions)
-View(lat_lon)
+#View(collisions)
+#View(lat_lon)
 
 joined <- left_join(collisions, lat_lon, by = "collision_incident_key") %>%
   filter(!is.na(collision_lat)) # rows with lat/long data
-View(joined)
+#View(joined)
 # write.csv(joined,"../data/SDOT_collisions_lat_long.csv", row.names = FALSE)
 
 wrangle_data <- function(joined) {
@@ -40,20 +40,20 @@ wrangle_data <- function(joined) {
   return(new_df)
 }
 DUI_collisions <- wrangle_data(joined)
-View(DUI_collisions)
+#View(DUI_collisions)
 
-num_DUI <- DUI_collisions %>% # order locations by number of DUIs
+num_DUI <- DUI_collisions %>% # locations by number of DUIs
   count(location) %>%
   arrange(-n)
-View(num_DUI)
+#View(num_DUI)
 
 six_DUIs <- num_DUI %>%
   filter(n >= 6)
-View(six_DUIs)
+#View(six_DUIs)
 
 six_DUI_collisions <- left_join(six_DUIs, DUI_collisions, by = "location") %>%
   filter(!str_detect(location, "BATTERY ST TUNNEL")) # this road no longer exists
-View(six_DUI_collisions)
+#View(six_DUI_collisions)
 
 getColor <- function(six_DUI_collisions) {
   sapply(six_DUI_collisions$n, function(n) {
@@ -76,53 +76,15 @@ DUI_map <- leaflet(data = six_DUI_collisions) %>%
     radius = 20,
     color = ~getColor(six_DUI_collisions)
   ) 
-DUI_map
+#DUI_map
 
 # if i can get color palette working
 # %>%
-  addLegend(
-    position = "bottomright",
-    title = "Seattle DUI Collisions",
-    pal = color_palette,
-    values = ~n,
-    opacity = 1
-  )
+#  addLegend(
+#    position = "bottomright",
+#    title = "Seattle DUI Collisions",
+#    pal = color_palette,
+#    values = ~n,
+#    opacity = 1
+#  )
 
-## Unused code
-# map of washington
-washington <- map_data("state") %>%
-  subset(region == "washington") 
-View(washington)
-
-long_max <- max(DUI_collisions$long, na.rm = T)
-long_min <- min(DUI_collisions$long, na.rm = T)
-lat_max <- max(DUI_collisions$lat, na.rm = T)
-lat_min <- min(DUI_collisions$lat, na.rm = T)
-
-blank_theme <- theme(
-  axis.text = element_blank(),
-  axis.line = element_blank(),
-  axis.ticks = element_blank(),
-  panel.border = element_blank(),
-  panel.grid = element_blank(),
-  axis.title = element_blank()
-)
-
-seattle_map <- ggplot(washington) +
-  geom_polygon( 
-    mapping = aes(x = long, y= lat, group = group),
-    fill = "grey",
-    color = "black",
-    size  = .1, 
-  ) + 
-  geom_point( # map collisions by long and lat
-    data = seven_DUI_collisions, 
-    mapping = aes(x=long, y=lat, color = n),
-    alpha = .3
-  ) +
-  coord_fixed( #set long/lat limits to zoom in on the Seattle data
-    xlim = c(-122.42, -122.24),
-    ylim = c(47.51, 47.74)
-  ) 
-#blank_theme
-seattle_map
