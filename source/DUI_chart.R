@@ -72,7 +72,7 @@ leaflet(data = six_DUI_collisions) %>%
   addCircles(
     lat = ~lat,
     lng = ~long,
-    label = ~location,
+    label = ~n,
     radius = 20,
     color = ~getColor(six_DUI_collisions)
   ) 
@@ -114,7 +114,7 @@ seattle_map <- ggplot(washington) +
     color = "black",
     size  = .1, 
   ) + 
-  geom_point(  # map collisions by long and lat
+  geom_point( # map collisions by long and lat
     data = seven_DUI_collisions, 
     mapping = aes(x=long, y=lat, color = n),
     alpha = .3
