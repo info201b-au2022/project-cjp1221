@@ -66,7 +66,7 @@ getColor <- function(six_DUI_collisions) {
     } })
 }
 
-leaflet(data = six_DUI_collisions) %>%
+DUI_map <- leaflet(data = six_DUI_collisions) %>%
   addProviderTiles("CartoDB.Positron") %>% # can also use OpenStreetMap
   setView(lng = -122.33, lat = 47.60, zoom = 10) %>%
   addCircles(
@@ -76,6 +76,7 @@ leaflet(data = six_DUI_collisions) %>%
     radius = 20,
     color = ~getColor(six_DUI_collisions)
   ) 
+DUI_map
 
 # if i can get color palette working
 # %>%
