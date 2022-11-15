@@ -1,18 +1,17 @@
 ---
 title: "Seattle Traffic Collisions and Correlations"
 author: "Nessa Choi, Olivia Grillo, Christopher Petersen, Ethan Side"
-date: "11/14/2022"
+date: "Autumn 2022"
 output: html_document
 ---
 
 ```{r setup, echo = FALSE, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-# Seattle Traffic Collisions and Correlations
-### Code name: Crash-Course
-### By: Nessa Choi, Olivia Grillo, Christopher Petersen, Ethan Side
-### Autumn 2022
-### INFO-201: Technical Foundations of Informatics - The Information School - University of Washington
+
+
+#### INFO-201: Technical Foundations of Informatics - The Information School - University of Washington
+
 ### Keywords: 
 Traffic, Car-Collisions, Weather, Transportation
 
@@ -21,19 +20,37 @@ Our project focuses on analyzing traffic collision data in the Seattle area. Our
 
 ## Problem Domain
 **Framing:**
+
 In a perfect world, traffic collisions would be a thing of the past, but they aren’t, and thousands of people still lose their lives every year. According to the World Health Organization, “Road traffic injuries are the leading cause of death for children and young adults aged 5-29 years.” We can take tangible steps in our local community to reduce traffic collisions, but first these steps rely on working with reliable data. Traffic collisions are an issue that affects everyone, knowing when and how they occur can help us make predictions and design decisions for a safer and more efficient future. The way Seattle is designed makes some roads and neighborhoods more prone to accidents, leading to unnecessary property damage, injuries, and even fatalities. This is an issue that has not only an economic burden but also a burden on human life. Socially and culturally we rely heavily on cars -especially on the west coast- and you can't get to many places easily without a car. A reliance on car culture mixed with poor road design leads to more traffic collisions, burdening society with unnecessary economic and social damage. Government has a crucial role in lightening the burden of car centric infrastructure. Having precise data on traffic collisions allows government representatives, city planners, engineers, and designers to make more informed decisions about road layouts, traffic signals, and sign placement. It could also allow more careful policing of certain areas to predict and prevent accidents from occuring as well as allow quick reaction by first responders when they do. The data also makes a strong case for the development of better public transportation options which would reduce the economic burden of car ownership, the land requirements that car-culture necessitates, and the toll of life caused by traffic collisions.
+
+
 **Direct and Indirect Stakeholders:**
+
 Direct stakeholders include Engineers, city planners, policy makers, politicians, and first responders who deal with car accidents on a daily basis. The key indirect stakeholders are pedestrians and bikers who suffer the most from dangerous road design. Other indirect stakeholders include government officials and designers from other cities hoping to improve their transportation infrastructure.
+
+
 **Human Values:** 
+
 The domain of this project primarily encompases two key values: Safety and community. Safety is one of the most important values for all people. When people have to risk their lives every day just to travel locally, their safety is at risk. By making decisions based on traffic data people’s safety could be greatly increased. We also want to look at how specific communities and neighborhoods are affected by heightened rates of traffic collisions on specific streets and intersections. We aim to investigate how the need for community is impeded by traffic collisions and how communities can be made closer with better road safety.
+
+
 **Potential Benefits and Harms:**
-**Possible benefits include:** Safer roads, more efficient traffic, decreased fatalities and injuries from traffic collisions, enforcement of good driving habits, government transparency on traffic issues, increased public knowledge on the issue, push for better driving education.
-**Possible harms include:** Over-policing of certain areas, economic implications for companies related to car manufacturing and oil, priorities placed in certain neighborhoods where others are neglected, the data excludes car crashes that were not reported.
+
+**Possible benefits include:** 
+
+Safer roads, more efficient traffic, decreased fatalities and injuries from traffic collisions, enforcement of good driving habits, government transparency on traffic issues, increased public knowledge on the issue, push for better driving education.
+
+**Possible harms include:** 
+
+Over-policing of certain areas, economic implications for companies related to car manufacturing and oil, priorities placed in certain neighborhoods where others are neglected, the data excludes car crashes that were not reported.
 
 ## Research Questions
 **(1)** How does data about the weather conditions within the Greater Seattle Area correlate with the number of traffic collisions? People who are more aware of the correlations between weather and traffic collisions may be more aware and careful while driving and hopefully reduce the chance of getting into a collision themselves. 
+
 **(2)** Is there a correlation between where pedestrians and cyclists are involved in accidents? Do they tend to happen at intersections? And what percentage of accidents involve an innocent civilian?
+
 **(3)** What hours/days have the highest risk of traffic collisions? We can use this data to advise safer driving habits or develop new technologies to deal with increased risk. This data can show the most dangerous time of day to be out. To see if more crashes happen during deemed “rush hours” or at night when drivers could be impaired.
+
 **(4)** What areas had the highest rates of accidents where the driver was under the influence? Are there certain roads with significantly higher rates of DUI accidents? Policymakers and police can make decisions to redesign monitor areas with higher rates of DUI accidents. Better public transit options could be implemented as well to reduce the risk of DUI collisions.
 
 ## Expected Implications
@@ -61,10 +78,12 @@ WSDOT. (n.d.). Seattle, Seattle-Tacoma International Airport: Current Weather. W
 ## Aggregate Data Table
 
 ## Charts - each one must be different (scatter, bar, map, etc)
+
+
 ```{r, echo = FALSE, include = FALSE}
 source("../source/DUI_chart.R")
 ```
-Map of locations in Seattle with 6 or more DUI Accidents:
+### Map of locations in Seattle with 6 or more DUI Accidents:
 ```{r DUI_chart, echo = FALSE}
 DUI_map
 ```
