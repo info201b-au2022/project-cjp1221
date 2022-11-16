@@ -8,8 +8,8 @@ seattle_collisions <- read.csv("../data/SDOT_collisions.csv")
 lat_lon <- read.csv("../data/SDOT_other.csv", stringsAsFactors = FALSE)
 
 #checking each data frame
-View(seattle_weather)
-View(seattle_collisions)
+#View(seattle_weather)
+#View(seattle_collisions)
 
 #simplifying data frame by wanted columns, rename incident key for joining
 seattle_collisions <- seattle_collisions %>%
@@ -42,12 +42,12 @@ seattle_collisions <- rename(seattle_collisions, DATE = INCDATE)
 
 #joining the data frames by the date  
 seattle_weather_vs_collisions <- left_join(seattle_weather, seattle_collisions, by = "DATE")
-View(seattle_weather_vs_collisions)
+#View(seattle_weather_vs_collisions)
 
 #join by incident key for lat/long
 seattle_collisions_weather_lat_long <- left_join(seattle_weather_vs_collisions, lat_lon, by = "collision_incident_key") %>%
   filter(!is.na(collision_lat))
-View(seattle_collisions_weather_lat_long)
+#View(seattle_collisions_weather_lat_long)
 
 #renaming columns for readability
 seattle_collisions_weather_lat_long <- seattle_collisions_weather_lat_long %>%
@@ -76,7 +76,7 @@ seattle_collisions_weather_lat_long <- seattle_collisions_weather_lat_long %>%
 #reorganizing columns for flow NOT SURE WHAT THIS DID SORRY
 # temp <- seattle_collisions_weather_lat_long[, c(1, 7, 6, 11, 18, 5, 2, 4, 3, 10, 14, 9, 15, 8, 12, 13, 16, 17)]
 # seattle_collisions_weather_lat_long <- temp
-View(seattle_collisions_weather_lat_long)
+#View(seattle_collisions_weather_lat_long)
 # write.csv(seattle_collisions_weather_lat_long, "../data/seattle_collisions_weather_lat_long.csv", row.names = FALSE)
 
 aggregate_table <- seattle_collisions_weather_lat_long %>%

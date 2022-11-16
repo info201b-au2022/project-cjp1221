@@ -71,7 +71,10 @@ Our data set presents incidences of car accidents in Seattle, Washington. With `
 
 ## Aggregate Data Table
 ```{r, echo = FALSE, include = FALSE}
-source("../source/Weather_vs_Collisions.R")
+source("../source/aggregate_data.R")
+```
+```{r aggregate_data, echo = FALSE}
+aggregate_table
 ```
 
 ## Charts - each one must be different (scatter, bar, map, etc)
