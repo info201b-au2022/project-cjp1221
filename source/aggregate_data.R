@@ -107,4 +107,4 @@ aggregate_table <- seattle_collisions_weather_lat_long %>%
     "Total Cyclists" = total_cyc,
   )
 
-View(aggregate_table)
+#View(aggregate_table)
