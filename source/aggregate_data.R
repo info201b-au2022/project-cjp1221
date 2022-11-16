@@ -88,6 +88,9 @@ aggregate_table <- seattle_collisions_weather_lat_long %>%
     total_ped = sum(`Pedestrians Involved`, na.rm = T),
     total_cyc = sum(`Cyclists Involved`, na.rm = T),
   ) %>%
+  filter(
+    total_injuries > 40
+  ) %>%
   arrange(
     -total_fatalities, 
     -total_injuries, 
