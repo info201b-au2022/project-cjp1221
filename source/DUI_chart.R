@@ -5,7 +5,7 @@ library(leaflet)
 
 collisions <- read.csv("../data/SDOT_collisions.csv", stringsAsFactors = FALSE)
 joined <- read.csv("../data/seattle_collisions_weather_lat_long.csv", stringsAsFactors = FALSE)
-View(joined)
+#View(joined)
 
 wrangle_data <- function(joined) {
   #select variables - incdate, lat,long, location, underinfl
@@ -16,7 +16,7 @@ wrangle_data <- function(joined) {
   return(new_df)
 }
 DUI_collisions <- wrangle_data(joined)
-View(DUI_collisions)
+#View(DUI_collisions)
 
 num_DUI <- DUI_collisions %>% # locations by number of DUIs
   count(Location) %>%
@@ -52,7 +52,7 @@ DUI_map <- leaflet(data = six_DUI_collisions) %>%
     radius = 20,
     color = ~getColor(six_DUI_collisions)
   ) 
-DUI_map
+#DUI_map
 
 # if i can get color palette working
 # %>%
