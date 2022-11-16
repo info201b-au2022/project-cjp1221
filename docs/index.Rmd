@@ -60,11 +60,19 @@ If our research finds relationships between the listed causes and traffic collis
 Some limitations we want to focus on is staying within the Seattle area. If we were to focus on a larger/smaller location, then we might be overwhelmed or underwhelmed with the amount of data we find. Another limitation would be the mystery of whether the drivers involved with the collision data are Seattle residents or tourists. Some other limitations would include knowing whether the collision includes multiple cars, road closures during certain days/weeks, weather conditions from past weather data, and causes for collisions.
 
 ## Summary Paragraph
-- include 5 data points in description
+
+```{r summary_info_setup, include = FALSE}
+source("../source/Summary_Info.R")
+```
+
+
+Our data set presents incidences of car accidents in Seattle, Washington. With `r num_rows` observations (rows) and `r num_columns` variables (columns), our data set allows us to examine these specific details of each accident:`r accident_details`. Our data set ranges from the date `r first_date` to `r last_date`. 
 
 
 ## Aggregate Data Table
-
+```{r, echo = FALSE, include = FALSE}
+source("../source/Weather_vs_Collisions.R")
+```
 
 ## Charts - each one must be different (scatter, bar, map, etc)
 
