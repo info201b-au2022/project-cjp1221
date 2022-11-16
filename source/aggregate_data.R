@@ -80,5 +80,27 @@ View(seattle_collisions_weather_lat_long)
 # write.csv(seattle_collisions_weather_lat_long, "../data/seattle_collisions_weather_lat_long.csv", row.names = FALSE)
 
 aggregate_table <- seattle_collisions_weather_lat_long %>%
-  group_by(location) %>%
-  summarize
+  group_by(Location) %>%
+  summarize(
+    total_fatalities = sum(Fatalities, na.rm = T),
+    total_injuries = sum(Injuries, na.rm = T),
+    total_serious = sum(`Serious Injuries`, na.rm = T),
+    total_ped = sum(`Pedestrians Involved`, na.rm = T),
+    total_cyc = sum(`Cyclists Involved`, na.rm = T),
+  ) %>%
+  arrange(
+    -total_fatalities, 
+    -total_injuries, 
+    -total_serious,
+    -total_ped,
+    -total_cyc,
+  ) %>%
+  rename(
+    "Total Fatalities" = total_fatalities, 
+    "Total Injuries" = total_injuries, 
+    "Total Serious" = total_serious,
+    "Total Pedestrians" = total_ped,
+    "Total Cyclists" = total_cyc,
+  )
+
+View(aggregate_table)
