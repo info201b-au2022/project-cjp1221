@@ -5554,22 +5554,204 @@ DUI. Our data set ranges from the date 2004-01-01 to 2017-12-14.</p>
 </div>
 <div id="aggregate-data-table" class="section level2">
 <h2>Aggregate Data Table</h2>
-<pre><code>## # A tibble: 46 × 6
-##    Location                              Total…¹ Total…² Total…³ Total…⁴ Total…⁵
-##    &lt;chr&gt;                                   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;
-##  1 AURORA BR BETWEEN RAYE ST AND BRIDGE…       5     174      45       1       0
-##  2 ALASKAN WY VI SB BETWEEN COLUMBIA ST…       4      94       5       0       0
-##  3 ALASKAN WY VI NB BETWEEN S ROYAL BRO…       4      86       1       0       0
-##  4 ALASKAN WY VI SB BETWEEN ALASKAN WY …       4      57       0       1       0
-##  5 AURORA AVE N AND N 115TH ST                 2      59       4       7       1
-##  6 RAINIER AVE S BETWEEN S MOUNT BAKER …       2      37       7       6       0
-##  7 BOREN AVE AND PIKE ST                       1      89       5      17      10
-##  8 ALASKAN WY VI NB BETWEEN S HOLGATE S…       1      77       4       0       0
-##  9 WEST SEATTLE BR EB BETWEEN ALASKAN W…       1      75       3       0       0
-## 10 RAINIER AVE S BETWEEN S CLOVERDALE S…       1      73       4       3       0
-## # … with 36 more rows, and abbreviated variable names ¹​`Total Fatalities`,
-## #   ²​`Total Injuries`, ³​`Total Serious`, ⁴​`Total Pedestrians`,
-## #   ⁵​`Total Cyclists`</code></pre>
+<table style="width:100%;">
+<colgroup>
+<col width="51%" />
+<col width="10%" />
+<col width="9%" />
+<col width="8%" />
+<col width="10%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Location</th>
+<th align="right">Total Fatalities</th>
+<th align="right">Total Injuries</th>
+<th align="right">Total Serious</th>
+<th align="right">Total Pedestrians</th>
+<th align="right">Total Cyclists</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">AURORA BR BETWEEN RAYE ST AND BRIDGE WAY N</td>
+<td align="right">5</td>
+<td align="right">174</td>
+<td align="right">45</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ALASKAN WY VI SB BETWEEN COLUMBIA ST ON RP AND ALASKAN
+WY VI SB EFR OFF RP</td>
+<td align="right">4</td>
+<td align="right">94</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ALASKAN WY VI NB BETWEEN S ROYAL BROUGHAM WAY ON RP AND
+SENECA ST OFF RP</td>
+<td align="right">4</td>
+<td align="right">86</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ALASKAN WY VI SB BETWEEN ALASKAN WY VI SB EFR OFF RP
+AND S HOLGATE ST</td>
+<td align="right">4</td>
+<td align="right">57</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">AURORA AVE N AND N 115TH ST</td>
+<td align="right">2</td>
+<td align="right">59</td>
+<td align="right">4</td>
+<td align="right">7</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">BOREN AVE AND PIKE ST</td>
+<td align="right">1</td>
+<td align="right">89</td>
+<td align="right">5</td>
+<td align="right">17</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">ALASKAN WY VI NB BETWEEN S HOLGATE ST AND SR99
+REPUBLICAN OFF RP</td>
+<td align="right">1</td>
+<td align="right">77</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">WEST SEATTLE BR EB BETWEEN ALASKAN WY VI NB ON RP AND
+DELRIDGE-W SEATTLE BR EB ON RP</td>
+<td align="right">1</td>
+<td align="right">75</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">RAINIER AVE S BETWEEN S CLOVERDALE ST AND S HENDERSON
+ST</td>
+<td align="right">1</td>
+<td align="right">73</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">OLSON PL SW BETWEEN 3RD AVE SW AND SW CAMBRIDGE PL</td>
+<td align="right">1</td>
+<td align="right">67</td>
+<td align="right">12</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">BALLARD BR BETWEEN POINT A AND POINT B</td>
+<td align="right">1</td>
+<td align="right">61</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">35TH AVE SW AND SW JUNEAU ST</td>
+<td align="right">1</td>
+<td align="right">60</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ALASKAN WY VI SB BETWEEN S LANDER ST AND ALASKAN WY VI
+SB WSB WB OFF RP</td>
+<td align="right">1</td>
+<td align="right">60</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">RAINIER AVE S AND S WALDEN ST</td>
+<td align="right">1</td>
+<td align="right">58</td>
+<td align="right">2</td>
+<td align="right">14</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">NE NORTHGATE WAY BETWEEN 5TH AVE NE AND 8TH AVE NE</td>
+<td align="right">1</td>
+<td align="right">57</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">NE NORTHGATE WAY BETWEEN 3RD AVE NE AND 5TH AVE NE</td>
+<td align="right">1</td>
+<td align="right">57</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">5TH AVE AND SENECA ST</td>
+<td align="right">1</td>
+<td align="right">51</td>
+<td align="right">1</td>
+<td align="right">9</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">RAINIER AVE S AND S OREGON ST</td>
+<td align="right">1</td>
+<td align="right">51</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">WESTLAKE AVE N BETWEEN NEWELL ST AND NICKERSON ST</td>
+<td align="right">1</td>
+<td align="right">50</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">2ND AVE AND DENNY WAY</td>
+<td align="right">1</td>
+<td align="right">50</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">LAKE WASHINGTON BLVD E BETWEEN BOYER AVE E AND E FOSTER
+ISLAND RD</td>
+<td align="right">1</td>
+<td align="right">50</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
 <p>We included this table as an easy way to view the most dangerous
 streets in the Seattle area. By getting cumulative totals of fatalities,
 injuries, serious injuries, and accidents where pedestrians or cyclists
@@ -5580,8 +5762,8 @@ identify problem areas.</p>
 <h2>Charts</h2>
 <div id="map-of-locations-in-seattle-with-6-or-more-dui-accidents" class="section level3">
 <h3>Map of locations in Seattle with 6 or more DUI Accidents:</h3>
-<div id="htmlwidget-5ae7e729b5d7ca3a1bd7" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5ae7e729b5d7ca3a1bd7">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircles","args":[[47.59813005,47.59813005,47.59813005,47.59813005,47.59813005,47.59813005,47.59813005,47.59813005,47.59813005,47.59813005,47.64502969,47.64502969,47.64502969,47.64502969,47.64502969,47.64502969,47.64502969,47.64502969,47.64502969,47.63758771,47.63758771,47.63758771,47.63758771,47.63758771,47.63758771,47.63758771,47.61523114,47.61523114,47.61523114,47.61523114,47.61523114,47.61523114,47.61523114,47.66779337,47.66779337,47.66779337,47.66779337,47.66779337,47.66779337,47.66779337,47.6083234,47.6083234,47.6083234,47.6083234,47.6083234,47.6083234,47.6136546,47.6136546,47.6136546,47.6136546,47.6136546,47.6136546,47.60416123,47.60416123,47.60416123,47.60416123,47.60416123,47.60416123,47.61351815,47.61351815,47.61351815,47.61351815,47.61351815,47.61351815,47.55282114,47.55282114,47.55282114,47.55282114,47.55282114,47.55282114,47.62559164,47.62559164,47.62559164,47.62559164,47.62559164,47.62559164,47.67241425,47.67241425,47.67241425,47.67241425,47.67241425,47.67241425],[-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3473007,-122.3473007,-122.3473007,-122.3473007,-122.3473007,-122.3473007,-122.3473007,-122.3473007,-122.3473007,-122.3444887,-122.3444887,-122.3444887,-122.3444887,-122.3444887,-122.3444887,-122.3444887,-122.3234155,-122.3234155,-122.3234155,-122.3234155,-122.3234155,-122.3234155,-122.3234155,-122.3614765,-122.3614765,-122.3614765,-122.3614765,-122.3614765,-122.3614765,-122.3614765,-122.3395583,-122.3395583,-122.3395583,-122.3395583,-122.3395583,-122.3395583,-122.3450019,-122.3450019,-122.3450019,-122.3450019,-122.3450019,-122.3450019,-122.3280786,-122.3280786,-122.3280786,-122.3280786,-122.3280786,-122.3280786,-122.3207714,-122.3207714,-122.3207714,-122.3207714,-122.3207714,-122.3207714,-122.3629755,-122.3629755,-122.3629755,-122.3629755,-122.3629755,-122.3629755,-122.3670222,-122.3670222,-122.3670222,-122.3670222,-122.3670222,-122.3670222,-122.406063,-122.406063,-122.406063,-122.406063,-122.406063,-122.406063],20,null,null,{"interactive":true,"className":"","stroke":true,"color":["darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange"],"fillOpacity":0.2},null,null,["10","10","10","10","10","10","10","10","10","10","9","9","9","9","9","9","9","9","9","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]}],"setView":[[47.6,-122.33],10,[]],"limits":{"lat":[47.55282114,47.67241425],"lng":[-122.406063,-122.3207714]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1967e4f4b7a6ac43e532" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1967e4f4b7a6ac43e532">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircles","args":[[47.59813005,47.59813005,47.59813005,47.59813005,47.59813005,47.59813005,47.59813005,47.59813005,47.59813005,47.59813005,47.64502969,47.64502969,47.64502969,47.64502969,47.64502969,47.64502969,47.64502969,47.64502969,47.64502969,47.63758771,47.63758771,47.63758771,47.63758771,47.63758771,47.63758771,47.63758771,47.61523114,47.61523114,47.61523114,47.61523114,47.61523114,47.61523114,47.61523114,47.66779337,47.66779337,47.66779337,47.66779337,47.66779337,47.66779337,47.66779337,47.6083234,47.6083234,47.6083234,47.6083234,47.6083234,47.6083234,47.6136546,47.6136546,47.6136546,47.6136546,47.6136546,47.6136546,47.60416123,47.60416123,47.60416123,47.60416123,47.60416123,47.60416123,47.61351815,47.61351815,47.61351815,47.61351815,47.61351815,47.61351815,47.55282114,47.55282114,47.55282114,47.55282114,47.55282114,47.55282114,47.62559164,47.62559164,47.62559164,47.62559164,47.62559164,47.62559164,47.67241425,47.67241425,47.67241425,47.67241425,47.67241425,47.67241425],[-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3355548,-122.3473007,-122.3473007,-122.3473007,-122.3473007,-122.3473007,-122.3473007,-122.3473007,-122.3473007,-122.3473007,-122.3444887,-122.3444887,-122.3444887,-122.3444887,-122.3444887,-122.3444887,-122.3444887,-122.3234155,-122.3234155,-122.3234155,-122.3234155,-122.3234155,-122.3234155,-122.3234155,-122.3614765,-122.3614765,-122.3614765,-122.3614765,-122.3614765,-122.3614765,-122.3614765,-122.3395583,-122.3395583,-122.3395583,-122.3395583,-122.3395583,-122.3395583,-122.3450019,-122.3450019,-122.3450019,-122.3450019,-122.3450019,-122.3450019,-122.3280786,-122.3280786,-122.3280786,-122.3280786,-122.3280786,-122.3280786,-122.3207714,-122.3207714,-122.3207714,-122.3207714,-122.3207714,-122.3207714,-122.3629755,-122.3629755,-122.3629755,-122.3629755,-122.3629755,-122.3629755,-122.3670222,-122.3670222,-122.3670222,-122.3670222,-122.3670222,-122.3670222,-122.406063,-122.406063,-122.406063,-122.406063,-122.406063,-122.406063],20,null,null,{"interactive":true,"className":"","stroke":true,"color":["darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","darkred","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange","orange"],"fillOpacity":0.2},null,null,["10","10","10","10","10","10","10","10","10","10","9","9","9","9","9","9","9","9","9","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","7","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6","6"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]}],"setView":[[47.6,-122.33],10,[]],"limits":{"lat":[47.55282114,47.67241425],"lng":[-122.406063,-122.3207714]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="scatterplot-of-total-accidents-injuries-and-fatalities-to-amount-of-precipitation" class="section level3">
 <h3>Scatterplot of Total Accidents, Injuries, and Fatalities to Amount

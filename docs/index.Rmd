@@ -76,9 +76,10 @@ Our data set presents incidences of car accidents in Seattle, Washington. With `
 ## Aggregate Data Table
 ```{r, echo = FALSE, include = FALSE}
 source("../source/aggregate_data.R")
+library("knitr")
 ```
 ```{r aggregate_data, echo = FALSE}
-aggregate_table
+kable(aggregate_table)
 ```
 
 We included this table as an easy way to view the most dangerous streets in the Seattle area. By getting cumulative totals of fatalities, injuries, serious injuries, and accidents where pedestrians or cyclists were involved and by arranging from highest to lowest one can quickly identify problem areas.
