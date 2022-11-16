@@ -39,7 +39,7 @@ seattle_collisions <- seattle_collisions %>%
 
 #renaming the date column in seattle_collisions to match the date column in seattle_weather  
 seattle_collisions <- rename(seattle_collisions, DATE = INCDATE)   
- 
+
 #joining the data frames by the date  
 seattle_weather_vs_collisions <- left_join(seattle_weather, seattle_collisions, by = "DATE")
 View(seattle_weather_vs_collisions)
@@ -89,7 +89,8 @@ aggregate_table <- seattle_collisions_weather_lat_long %>%
     total_cyc = sum(`Cyclists Involved`, na.rm = T),
   ) %>%
   filter(
-    total_injuries > 40
+    total_injuries > 30,
+    total_fatalities >= 1
   ) %>%
   arrange(
     -total_fatalities, 
