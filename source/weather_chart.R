@@ -30,7 +30,7 @@ weather$DATE <- as.Date(weather$DATE, format = "%Y-%m-%d")
 # Joining weather and collision data
 weather_vs_collisions <- inner_join(weather, collisions_by_date, by = "DATE")
 number_of_collisions <- nrow(collisions)
-total_of_collisions_in_weather <-sum(weather_collisions_rain_amount$total_accidents)
+total_of_collisions_in_weather <-sum(weather_vs_collisions$total_accidents)
 
 # Total number of accidents to each month from 2004-2017
 collisions_by_month <- weather_vs_collisions %>%
@@ -53,10 +53,9 @@ weather_collisions_is_raining <- weather_vs_collisions %>%
 weather_collisions_rain_amount <- weather_vs_collisions %>%
   filter(PRCP > 1) %>%
   group_by(PRCP) %>%
-  summarize(total_accidents = sum(total_accidents), 
-            total_fatalities = sum(total_fatalities), 
-            total_injuries = sum(total_injuries)) %>%
-  na.omit()
+  summarize(total_accidents = sum(total_accidents, na.rm = T), 
+            total_fatalities = sum(total_fatalities, na.rm = T), 
+            total_injuries = sum(total_injuries, na.rm = T))
 
 # Bar chart of collisions vs freezing temperatures
 freezing_chart <- 
@@ -82,5 +81,4 @@ precipitation_chart <-
   geom_point(aes(y = total_injuries, col = "Total Injuries")) +
   labs(y = "", x = "Amount of Precipitation (in)") +
   ggtitle("Precipitation vs Collisions")
-
   
