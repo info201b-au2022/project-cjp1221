@@ -41,6 +41,10 @@ WetCollisions <- sum(1073 + 94)
 DryCollisions <- sum(5212 + 5998)  
 qplot(DryCollisions, WetCollisions, xlim = c(0, 12000), ylim = c(0, 12000), main = "Seattle Collisions Involving Pedestrian and Cyclists")
 
+**This very simplistic graph tells a story about driver habits and how it affects citizens. 
+We can see that there is a large increase in pedestrians involved when the conditions are dry. 
+This uptick can be explained by drivers lack of worry when the roads are dry and can cause negligence. 
+Also when the roads are wet it would likely mean it has rained recently and runners/cyclists are not going to be out and about**  
 
   
   
