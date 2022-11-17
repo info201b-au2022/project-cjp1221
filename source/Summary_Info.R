@@ -1,7 +1,6 @@
 library(tidyverse)
 library(ggplot2)
 library(lubridate)
-
 seattle_weather <- read.csv("../data/seattleWeather_1948-2017.csv")
 seattle_collisions <- read.csv("../data/SDOT_Collisions.csv")
 
