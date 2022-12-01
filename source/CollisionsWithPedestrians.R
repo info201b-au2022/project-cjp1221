@@ -1,4 +1,4 @@
-SDOT_Collisions <- read.csv("~/info201/Assignments/project-cjp1221/data/SDOT_Collisions.csv", stringsAsFactors=FALSE)
+SDOT_Collisions <- read.csv("../data/SDOT_collisions.csv", stringsAsFactors=FALSE)
 Collision_Data <- SDOT_Collisions %>% 
   select("ROADCOND", "PEDCOUNT", "PEDCYLCOUNT")
 Collision_Data <- na.omit(Collision_Data)

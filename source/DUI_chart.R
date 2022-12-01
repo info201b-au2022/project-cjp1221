@@ -1,7 +1,6 @@
 library(tidyverse)
 library(ggplot2)
 library(leaflet)
-#make sure to set working directory to source file location first
 
 collisions <- read.csv("../data/SDOT_collisions.csv", stringsAsFactors = FALSE)
 joined <- read.csv("../data/seattle_collisions_weather_lat_long.csv", stringsAsFactors = FALSE)
@@ -43,7 +42,7 @@ getColor <- function(six_DUI_collisions) {
 }
 
 DUI_map <- leaflet(data = six_DUI_collisions) %>%
-  addProviderTiles("CartoDB.Positron") %>% # can also use OpenStreetMap
+  addProviderTiles("CartoDB.Positron") %>% 
   setView(lng = -122.33, lat = 47.60, zoom = 10) %>%
   addCircles(
     lat = ~Latitude,
