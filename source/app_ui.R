@@ -1,3 +1,4 @@
+library(shinythemes)
 # ui
 #packages
 library(shiny)
@@ -159,5 +160,6 @@ ui <- navbarPage(
   ped_cycle_panel,
   dui_panel,
   summary_takeaways_panel,
-  report_panel
+  report_panel,
+  theme = shinytheme("slate")
 )
