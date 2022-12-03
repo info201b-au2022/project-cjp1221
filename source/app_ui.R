@@ -1,4 +1,6 @@
 # ui
+#packages
+library(shiny)
 
 #intro tab
 intro_panel <- tabPanel(
@@ -10,10 +12,15 @@ intro_panel <- tabPanel(
   
   #intro paragraph: brief overview of your project: 
   #What major questions are you seeking to answer and what data will you use to answer those questions? 
-  p("WRITE HERE"),
+  p("Our data exploration project focuses on traffic collision records in the Seattle Area. Our
+    analysis involves investigating possible relationships between the various factors of a car 
+    collision including weather, pedistrians, cyclists, location, and the time of the incident. Our 
+    investigation is driven by key questions such as how weather conditions affect traffic, where the 
+    highest frequencies of collisions occur, and what proportion of incidences involved a pedistrian and
+    or cyclist."),
   
   # image to add detail
-  img(src = "IMAGE LINK HERE"),
+  img(src = "~/Documents/info201/project-cjp1221/source/seattle_image.png"),
   
   # link? to photo or other?
   p(a(href = "LINK HERE", "(source)")),
