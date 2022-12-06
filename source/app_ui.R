@@ -13,22 +13,29 @@ intro_panel <- tabPanel(
   
   #intro paragraph: brief overview of your project: 
   #What major questions are you seeking to answer and what data will you use to answer those questions? 
-  p("Our data exploration project focuses on traffic collision records in the Seattle Area. Our
+  h4("Our data exploration project focuses on traffic collision records in the Seattle Area. Our
     analysis involves investigating possible relationships between the various factors of a car 
     collision including weather, pedistrians, cyclists, location, and the time of the incident. Our 
-    investigation is driven by key questions such as how weather conditions affect traffic, where the 
-    highest frequencies of collisions occur, and what proportion of incidences involved a pedistrian and
-    or cyclist."),
+    investigation is driven by key questions such as: "),
+  
+  #main questions:
+  h5(strong("- How do weather conditions affect traffic?")),
+  h5(strong("- Where did the highest frequencies of collisions occur?")),
+  h5(strong("- What proportion of incidences involved a pedistrian and
+    or cyclist?")),
+  
+  #instruction to explore website
+  p(em('*Click on each tab to explore interative visualizations of the various 
+    dimensions of car collisions in Seattle!'), style = "color:yellow"),
   
   # image to add detail
-  img(src = "~/Documents/info201/project-cjp1221/source/seattle_image.png"),
+  img(src = "https://i.etsystatic.com/20392596/r/il/44fb36/4276108273/il_1588xN.4276108273_j9ke.jpg", 
+      height = "80%", width = "95%"),
   
   # link? to photo or other?
-  p(a(href = "LINK HERE", "(source)")),
+  p(em("image source: https://i.etsystatic.com/20392596/r/il/44fb36/4276108273/il_1588xN.4276108273_j9ke.jpg"))
 
-  #instruction to explore website
-  p('Click on each tab to explore interative visualizations of the various 
-    dimensions of car collisions in Seattle!')
+  
 )
 
 #INTERACTIVE #1: weather 
@@ -127,13 +134,21 @@ summary_takeaways_panel <- tabPanel(
   #3 major takeaways from the project (which should be related 
   #to a specific aspect of your analysis). Feel free to incorporate tables, 
   #graphics, or other elements to convey these conclusions. 
-  p("WRITE HERE"),
+  h4("In exploring the entirety of our report, the amount of information in various data 
+  representations we present can become daunting. Therefore, it is important to establish 
+  key takeaways in order to ensure that you, the reader, undertstand the patterns in our 
+  report in the way that we intended. The most important conclusions we have made from 
+    our data exploration of traffic collisions in the Seattle area are: "),
+  
+  h5(strong("- main")),
+  h5(strong("- takeways")),
+  h5(strong("- here")),
   
   # image to add detail
-  img(src = "IMAGE LINK HERE"),
+  img(src = "https://www.pentaxforums.com/gallery/images/3274/1_Freeway_lights_6x9small.JPEGjpg.jpg", height = "80%", width = "95%"),
   
   # link? to photo or other?
-  p(a(href = "LINK HERE", "(source)"))
+  p(em("image source: https://www.pentaxforums.com/gallery/images/3274/1_Freeway_lights_6x9small.JPEGjpg.jpg"))
 )
 
 
