@@ -1,6 +1,6 @@
 library(shinythemes)
 # ui
-#packages
+# packages
 library(shiny)
 
 #intro tab
@@ -39,11 +39,10 @@ intro_panel <- tabPanel(
 )
 
 #INTERACTIVE #1: weather 
-
 #weather main content
 weather_main <- mainPanel(
   # plot output?
-  plotOutput("plot"),
+  plotOutput("precipitation_chart"),
   
   # written analysis 
   p(
@@ -54,17 +53,19 @@ weather_main <- mainPanel(
 #weather side content
 weather_side <- sidebarPanel(
   # sliderInput? or other feature
-  sliderInput(
-    inputId = "",
-    label = "", min = 0, max = 0, value = c(0, 0)
-  )
+  headerPanel('Precipitation vs. Car Collisions'),
+  sliderInput("precipitation", "Amount of Precipitation (in):", 
+              min = 1, max = 4, value = 4, step = 0.1),
+  checkboxGroupInput("car_collision_", "Type of Car Collisions",
+                     c("Accidents" = "total_accidents",
+                       "Fatalities" = "total_fatalities",
+                       "Injuries" = "total_injuries"))
 )
-
   
 #weather tab full structure  
 weather_panel <- tabPanel(
   #title
-  "Weather in Relation to Car Collisions",
+  "Car Collisions in Relation to Weather",
   weather_main,
   weather_side
 )
