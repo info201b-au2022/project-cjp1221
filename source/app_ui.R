@@ -34,7 +34,7 @@ intro_panel <- tabPanel(
   
   # link? to photo or other?
   p(em("image source: https://i.etsystatic.com/20392596/r/il/44fb36/4276108273/il_1588xN.4276108273_j9ke.jpg"))
-
+  
   
 )
 
@@ -61,7 +61,7 @@ weather_side <- sidebarPanel(
                        "Fatalities" = "total_fatalities",
                        "Injuries" = "total_injuries"))
 )
-  
+
 #weather tab full structure  
 weather_panel <- tabPanel(
   #title
@@ -101,26 +101,26 @@ ped_cycle_panel <- tabPanel(
 #main panel
 dui_main <- mainPanel(
   # plot output or other visualization
-  plotOutput("plot"),
+  leafletOutput("map"),
   
   # written analysis 
   p(
     "TEXT HERE",
   )
 )
-  
+
 #side panel
 dui_side <- sidebarPanel(
-  # sliderInput? or change
+  # sliderInput
   sliderInput(
-    inputId = "",
-    label = "", min = 0, max = 0, value = c(0, 0)
+    inputId = "num",
+    label = "Minimum Number of DUI colissions at Location:",
+    min = 1, max = 24, value = 1
   )
 )
 
 dui_panel <- tabPanel(
-  #title
-  "Records of Under the Influence Drivers",
+  "Collisions by Drivers Under the Influence",
   dui_main,
   dui_side
 )
