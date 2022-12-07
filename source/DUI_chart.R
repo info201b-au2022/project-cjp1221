@@ -22,7 +22,6 @@ DUI_collisions <- wrangle_data(joined)
 DUI_by_num <- DUI_collisions %>%
   count(Location) %>%
   arrange(-n)
-View(DUI_by_num)
 
 total_DUI_collisions <- left_join(DUI_by_num, DUI_collisions, by = "Location") %>%
   filter(!str_detect(Location, "BATTERY ST TUNNEL")) # this road no longer exists
