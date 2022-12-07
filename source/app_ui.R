@@ -1,7 +1,8 @@
-library(shinythemes)
+library("shinythemes")
 # ui
 # packages
-library(shiny)
+library("shiny")
+library("leaflet")
 
 #intro tab
 intro_panel <- tabPanel(
