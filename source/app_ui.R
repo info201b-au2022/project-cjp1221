@@ -96,7 +96,7 @@ ped_cycle_panel <- tabPanel(
   ped_cycle_side
 )
 
-#interactive #3: DUI
+#INTERACTIVE #3: DUI
 #main panel
 dui_main <- mainPanel(
   # plot output or other visualization
@@ -123,7 +123,7 @@ dui_panel <- tabPanel(
   dui_main,
   dui_side
 )
-#summary/takeaways 
+#SUMMARY/TAKEAWAYS
 summary_takeaways_panel <- tabPanel(
   #tab title
   "Summary",
@@ -152,7 +152,7 @@ summary_takeaways_panel <- tabPanel(
 )
 
 
-#report page
+#REPORT HERE
 report_panel <- tabPanel(
   #tab title
   "Report",
