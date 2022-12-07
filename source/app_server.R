@@ -24,7 +24,7 @@ map_DUI <- function(total_DUI_collisions, num) {
       label = ~Location,
       radius = 200,
       color = ~pal(n),
-      opacity = 0.5,
+      opacity = 0.3,
       stroke = FALSE
     )  %>%
     addLegend(
