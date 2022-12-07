@@ -1,6 +1,6 @@
 library(shinythemes)
 # ui
-#packages
+# packages
 library(shiny)
 
 #intro tab
@@ -34,16 +34,15 @@ intro_panel <- tabPanel(
   
   # link? to photo or other?
   p(em("image source: https://i.etsystatic.com/20392596/r/il/44fb36/4276108273/il_1588xN.4276108273_j9ke.jpg"))
-
+  
   
 )
 
 #INTERACTIVE #1: weather 
-
 #weather main content
 weather_main <- mainPanel(
   # plot output?
-  plotOutput("plot"),
+  plotOutput("precipitation_chart"),
   
   # written analysis 
   p(
@@ -54,17 +53,19 @@ weather_main <- mainPanel(
 #weather side content
 weather_side <- sidebarPanel(
   # sliderInput? or other feature
-  sliderInput(
-    inputId = "",
-    label = "", min = 0, max = 0, value = c(0, 0)
-  )
+  headerPanel('Precipitation vs. Car Collisions'),
+  sliderInput("precipitation", "Amount of Precipitation (in):", 
+              min = 1, max = 4, value = 4, step = 0.1),
+  checkboxGroupInput("car_collision_", "Type of Car Collisions",
+                     c("Accidents" = "total_accidents",
+                       "Fatalities" = "total_fatalities",
+                       "Injuries" = "total_injuries"))
 )
 
-  
 #weather tab full structure  
 weather_panel <- tabPanel(
   #title
-  "Weather in Relation to Car Collisions",
+  "Car Collisions in Relation to Weather",
   weather_main,
   weather_side
 )
@@ -100,26 +101,31 @@ ped_cycle_panel <- tabPanel(
 #main panel
 dui_main <- mainPanel(
   # plot output or other visualization
-  plotOutput("plot"),
+  leafletOutput("map"),
   
   # written analysis 
   p(
-    "TEXT HERE",
+    "This map was made to investigate rates of DUI colissions in the
+    Seattle area. Through examining the map, locations with high rates of DUIs
+    become easily identifiable. Policy makers and city planners can utilize this 
+    information to better predict, prevent, police, and respond to drivers 
+    under the influence. Community members could also use this map to spread
+    awareness of the issue and take steps to stay safe in higher risk areas",
   )
 )
-  
+
 #side panel
 dui_side <- sidebarPanel(
-  # sliderInput? or change
+  # sliderInput
   sliderInput(
-    inputId = "",
-    label = "", min = 0, max = 0, value = c(0, 0)
+    inputId = "num",
+    label = "Minimum Number of DUI collisions at Location:",
+    min = 1, max = 24, value = 1
   )
 )
 
 dui_panel <- tabPanel(
-  #title
-  "Records of Under the Influence Drivers",
+  "Collisions by Drivers Under the Influence",
   dui_main,
   dui_side
 )
