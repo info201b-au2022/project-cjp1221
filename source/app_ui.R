@@ -105,7 +105,12 @@ dui_main <- mainPanel(
   
   # written analysis 
   p(
-    "TEXT HERE",
+    "This map was made to investigate rates of DUI colissions in the
+    Seattle area. Through examining the map, locations with high rates of DUIs
+    become easily identifiable. Policy makers and city planners can utilize this 
+    information to better predict, prevent, police, and respond to drivers 
+    under the influence. Community members could also use this map to spread
+    awareness of the issue and take steps to stay safe in higher risk areas",
   )
 )
 
@@ -114,7 +119,7 @@ dui_side <- sidebarPanel(
   # sliderInput
   sliderInput(
     inputId = "num",
-    label = "Minimum Number of DUI colissions at Location:",
+    label = "Minimum Number of DUI collisions at Location:",
     min = 1, max = 24, value = 1
   )
 )
