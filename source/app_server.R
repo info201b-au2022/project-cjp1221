@@ -4,7 +4,6 @@ library("plotly")
 library("stringr")
 library("leaflet")
 
-
 source("DUI_chart.R")
 
 map_DUI <- function(total_DUI_collisions, num) {
