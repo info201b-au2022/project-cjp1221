@@ -67,8 +67,8 @@ weather_side <- sidebarPanel(
 weather_panel <- tabPanel(
   #title
   "Car Collisions in Relation to Weather",
-  weather_main,
-  weather_side
+  weather_side,
+  weather_main
 )
 
 #INTERACTIVE #2: pedestrians/cyclists
@@ -94,8 +94,8 @@ ped_cycle_side <- sidebarPanel(
 ped_cycle_panel <- tabPanel(
   #title
   "Pedestrian and Cyclist Incidents",
-  ped_cycle_main,
-  ped_cycle_side
+  ped_cycle_side,
+  ped_cycle_main
 )
 
 #INTERACTIVE #3: DUI
@@ -127,9 +127,9 @@ dui_side <- sidebarPanel(
 
 dui_panel <- tabPanel(
   "Collisions by Drivers Under the Influence",
-  dui_main,
-  dui_side
-)
+  dui_side,
+  dui_main
+  )
 #SUMMARY/TAKEAWAYS
 summary_takeaways_panel <- tabPanel(
   #tab title
