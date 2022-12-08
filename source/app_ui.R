@@ -356,15 +356,84 @@ data, and causes for collisions."),
   
   #findings
   h3("Findings"),
-  p("writing here"),
+  p("Surprisingly, there are a significant amount of traffic collisions 
+that take place during lighter rainy weather conditions in comparison to 
+heavy weather conditions. Also, there are more fatalities and injuries in 
+traffic collisions during lighter rain than heavier rain. Statistically, 51.9% 
+of traffic accidents occur during rainy weather whereas 48.1% of traffic 
+accidents occur during non-rainy weather conditions. To clarify, not every 
+traffic collision included injuries or fatalities. But out of 323 collisions that 
+included fatalities, 60.1% of fatalities occurred while it was not raining and 
+39.9% of fatalities occurred while it was raining. As for injuries, out of 72136 
+collisions, 53.2% of injuries occurred while it was not raining and 46.8% 
+occurred while it was raining."),
+  p("From most to least, the amount of collisions with pedestrians and 
+cyclists respectively occur the most from dry weather conditions, then wet 
+conditions, and lastly icy conditions."),
+  p("At a minimum of 1 DUI collisions at a location, we can see that 
+the map data is full of DUIs in the Seattle area. However, at a minimum of 
+5 DUI collisions, we can see that there is a cluster of DUI related collisions 
+from Belltown to the International District. Once we increase the minimum 
+to 10 DUI collisions, we can see that there are a majority DUI related collisions 
+within the central Seattle area rather than from the southern or northern 
+regions like Shoreline or White Center. However, that does not negate the 
+fact that there are tons of DUI related collisions within the overall Seattle area, 
+not just the Downtown Seattle area."),
   
   #discussions
   h3("Discussions"),
-  p("writing here"),
+  p(" Seattle is known to be a rainy city, where it rains approximately 
+150 days out of the year on average. It is not entirely shocking to see that the 
+majority of accidents occur during non-rainy weather due to the ~60% of the 
+year in Seattle where it doesn’t rain. However, this data does refute our 
+hypothesis that there would be an increase in traffic collisions as rain gets 
+heavier. This information is important to see and understand that rainy weather 
+is not a significant factor in traffic collisions according to our data, which actually 
+shows more of a negative correlation. By knowing this information, we can 
+continue our research and test other factors of weather-related correlations such 
+as sunny vs. cloudy forecasts."),
+  p("The lack of icy road conditions and the correlation to pedestrian 
+and cyclist collisions can be attested to the amount of days throughout the 
+year that falls below 32 degrees. Not to mention that the icy road conditions 
+rely on the combination of 32 degree weather and if it is precipitating a 
+significant amount to freeze over the roads. But overall, drivers should be 
+more aware of their driving habits and awareness of pedestrians and cyclists."),
+  p("We believe that the high number of DUIs in the downtown region 
+is related to the presence of bars and party scenes in this area of Seattle. 
+Although Seattle has a variety of transportation options, policymakers may 
+need to investigate new options in order to reduce the number of DUI-related 
+collisions and DUIs overall. To further minimize the incidence of DUIs, police 
+may need to reevaluate and reconsider their monitoring techniques in the downtown 
+area. Also, there should be an emphasis on the downtown area, not a focus; 
+keep in mind that DUIs are prevalent everywhere in the Seattle area which 
+should not be neglected."),
   
   #conclusion
   h3("Conclusion"),
-  p("writing here"),
+  p("We can draw the conclusion from the weather data that, despite Seattle's frequent 
+rain, car accidents are negatively correlated with rainy weather. Therefore, we may 
+not have the appropriate data to influence policymakers and road engineers to 
+adjust their actions in response to rainy weather. It does, however, leave potential 
+for additional research on weather correlation. Other weather-related considerations 
+that are not related to rainy weather can be used by policymakers and other state 
+officials to inform their decisions. This information can also be used to help remind 
+the general public to continue to drive safely, regardless of the weather."),
+  p("As for the pedestrian and cyclist data, we can conclude that the 
+Seattle community should realize how hazardous driving can be for bicyclists 
+and pedestrians even in good weather, and to always be cautious regardless 
+of the weather. As for pedestrians and cyclists, they should be aware of their 
+own surroundings and to always be cautious while walking on streets and 
+crosswalks. Also, wearing bright colors can help decrease the amount of 
+accidents involving pedestrians and cyclists."),
+  p("To conclude the DUI data, individuals and officials should be 
+informed of DUI-related collision statistics in order to raise awareness 
+and promote safe driving behaviors. Officials should consider expanding 
+transportation alternatives and strengthening monitoring to reduce DUIs and accidents. 
+On another hand, citizens should be aware of the prevalence of DUI-related 
+collisions and should advocate safe driving and drinking behaviors. We can 
+use a combination of both to prevent DUI-related collisions and thrive in a safer 
+environment. This is true not only for the Seattle area, but also for any region 
+of the world where DUIs are common."),
   
   #acknowledgements
   h3("Acknowledgments"),
