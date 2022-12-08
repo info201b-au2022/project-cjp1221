@@ -14,12 +14,6 @@ server <- function(input, output) {
     return(map_DUI(total_DUI_collisions, input$num))
   })
   output$graph <- renderPlot({
-    if(input$graph == "Pedestrian") {
-      return(ggplotly(chart))
-    }
-    else if (input$graph == "Cyclists") {
-      return(ggplotly(chart2))
-    }
+    return(chart(Collision_Data, input$graph))
   })
-  
 }
