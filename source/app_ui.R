@@ -171,7 +171,7 @@ summary_takeaways_panel <- tabPanel(
             involving cyclists and pedestians")),
   h5(strong("- Instances of accidents caused by drivers under the influence 
             happened most frequently along the areas surrounding 
-            the Highway 99 and the central seattle area. ")),
+            the Highway 99 and the central Seattle area. ")),
   
   # image to add detail
   img(src = "https://www.pentaxforums.com/gallery/images/3274/1_Freeway_lights_6x9small.JPEGjpg.jpg", height = "80%", width = "95%"),
