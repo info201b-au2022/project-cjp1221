@@ -168,8 +168,10 @@ summary_takeaways_panel <- tabPanel(
     This disparity is the exact reason why data wrangling and data visualization exist, to uncover trends 
      that we never thought would be there. Yet we also can confirm some of our theories including that 
      Seattle's climate doesn't allow for many accidents in weather other than dry or wet.")),
-  h5(strong("- main takeway here")),
-  h5(strong("- main takeway here")),
+  h5(strong("- Another main takeaway we discovered from our analysis was that the among the accidents
+            that do happen on rainy days, most accidents occurred between forecasts of 0 - 2 inches of rain fall")),
+  h5(strong("- Finally, the last main takeaway from our data exploration is that instances of accidents
+            caused by drivers under the influence happened most frequently on I5 and the areas surrounding it. ")),
   
   # image to add detail
   img(src = "https://www.pentaxforums.com/gallery/images/3274/1_Freeway_lights_6x9small.JPEGjpg.jpg", height = "80%", width = "95%"),

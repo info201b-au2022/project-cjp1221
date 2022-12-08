@@ -1,0 +1,11 @@
+name: source
+title:
+username:
+account: ogrillo
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7843839
+bundleId: 6608171
+url: https://ogrillo.shinyapps.io/source/
+when: 1670466434.42301
+lastSyncTime: 1670466434.42303
