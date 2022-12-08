@@ -46,24 +46,7 @@ collisions_rain_amount <- weather_vs_collisions %>%
             total_fatalities = sum(total_fatalities, na.rm = T), 
             total_injuries = sum(total_injuries, na.rm = T))
 
-# Bar chart of collisions vs rain
-#raining_chart <- 
-#  ggplot(collisions_is_raining, 
-#         aes(x = is_raining, y = total_accidents)) + 
-#  geom_col(fill = "#0073C2FF") +
-#  geom_text(aes(label = total_accidents), vjust = -0.2, color = "black") +
-#  labs(y = "# of Accidents", x = "Rainy Weather Forecast")
-
-# Scatterplot of total collisions, injuries, and fatalities vs amount of precipitation
-#precipitation_chart <-
-#  ggplot(collisions_rain_amount, aes(x = PRCP, y = value)) + 
-#  geom_point(aes(y = total_accidents, col = "Total Accidents")) +
-#  geom_point(aes(y = total_fatalities, col = "Total Fatalities")) +
-#  geom_point(aes(y = total_injuries, col = "Total Injuries")) +
-#  labs(y = "", x = "Amount of Precipitation (in)") +
-#  ggtitle("Precipitation vs Collisions")
-
-# Create Scatterplot function
+# Function to create scatter plot and bar chart in shiny app
 create_scatterplot <- function(weather_vs_collisions, min, max, checkbox, incident_type) {
   if (incident_type == "total_accidents") {
     string = "Accidents"
