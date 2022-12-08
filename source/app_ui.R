@@ -20,10 +20,11 @@ intro_panel <- tabPanel(
     investigation is driven by key questions such as: "),
   
   #main questions:
-  h5(strong("- How do weather conditions affect traffic?")),
-  h5(strong("- Where did the highest frequencies of collisions occur?")),
+  h5(strong("- How do wet weather conditions affect traffic?")),
   h5(strong("- When Seattle drivers are getting in collisions how are they happening and 
             who is being harmed?")),
+  h5(strong("- Where did the highest frequencies of collisions occur?")),
+  
   
   #instruction to explore website
   p(em('*Click on each tab to explore interative visualizations of the various 
@@ -86,7 +87,7 @@ weather_panel <- tabPanel(
 ped_cycle_main <- mainPanel(
   # plot output or other visualization
   plotOutput("graph"),
-  
+  p(),
   # written analysis 
   p(
     "These two graphs represent Seattle Collisions during certain road conditions. 
@@ -119,7 +120,7 @@ ped_cycle_panel <- tabPanel(
 dui_main <- mainPanel(
   # plot output or other visualization
   leafletOutput("map"),
-  
+  p(),
   # written analysis 
   p(
     "This map was made to investigate rates of DUI colissions in the
@@ -162,15 +163,13 @@ summary_takeaways_panel <- tabPanel(
   key takeaways in order to ensure that you, the reader, undertstand the patterns in our 
   report in the way that we intended. The most important conclusions we have made from 
     our data exploration of traffic collisions in the Seattle area are: "),
-  h4("One major takeaway about data in general is it always surprises you. I would have never 
+  h5(strong("- One major takeaway about data in general is it always surprises you. I would have never 
      guessed that a city like Seattle would have a higher number of dry accidents than wet ones. 
     This disparity is the exact reason why data wrangling and data visualization exist, to uncover trends 
      that we never thought would be there. Yet we also can confirm some of our theories including that 
-     Seattle's climate doesn't allow for many accidents in weather other than dry or wet."),
-  
-  h5(strong("- main")),
-  h5(strong("- takeways")),
-  h5(strong("- here")),
+     Seattle's climate doesn't allow for many accidents in weather other than dry or wet.")),
+  h5(strong("- main takeway here")),
+  h5(strong("- main takeway here")),
   
   # image to add detail
   img(src = "https://www.pentaxforums.com/gallery/images/3274/1_Freeway_lights_6x9small.JPEGjpg.jpg", height = "80%", width = "95%"),
@@ -193,7 +192,10 @@ report_panel <- tabPanel(
   
   #authors
   h3("Authors"),
-  p("Christopher Peterson, Ethan Side, Nessa Choi, Olivia Grillo"),
+  p("Christopher Peterson cjp1221@uw.edu"),
+  p("Ethan Side eside@uw.edu"),
+  p("Nessa Choi nessaa@uw.edu"),
+  p("Olivia Grillo ogrillo@uw.edu"),
   
   #affiliation
   h3("Affiliation"),
@@ -216,7 +218,7 @@ report_panel <- tabPanel(
   
   #keywords 
   h3("Keywords"),
-  p("Traffic, Car-Collisions, Weather, Transportation"),
+  p("Traffic, Car-Collisions, Weather, Transportation, Seattle"),
   
   #introduction
   h3("Introduction"),
@@ -237,8 +239,8 @@ what type of crash is the most common."),
   p("In a perfect world, traffic collisions would be a thing of the past, but
 they aren't, and thousands of people still lose their lives every year.
 According to the World Health Organization, \"Road traffic injuries are
-    the leading cause of death for children and young adults aged 5-29
-    years.\" We can take tangible steps in our local community to reduce
+the leading cause of death for children and young adults aged 5-29
+years.\" We can take tangible steps in our local community to reduce
 traffic collisions, but first these steps rely on working with reliable
 data. Traffic collisions are an issue that affects everyone, knowing
 when and how they occur can help us make predictions and design
@@ -287,14 +289,14 @@ toll of life caused by traffic collisions."),
   h3("Potential Benefits and Harms"),
 
   #possible benefits
-  p(strong("possible benefits")),
+  p(strong("Possible Benefits")),
   p("Safer roads, more efficient traffic, decreased fatalities and injuries from 
   traffic collisions, enforcement of good driving habits, government transparency 
   on traffic issues, increased public knowledge on the issue, push for better 
   driving education."),
   
   #possible harms 
-  p(strong("possible harms")),
+  p(strong("Possible Harms")),
   p("Over-policing of certain areas, economic implications for companies related 
     to car manufacturing and oil, priorities placed in certain neighborhoods where 
     others are neglected, the data excludes car crashes that were not reported."),
@@ -302,28 +304,24 @@ toll of life caused by traffic collisions."),
   #research questions 
   h3("Research Questions"),
   p(strong("1. "), "How does data about the weather conditions within the Greater
-Seattle Area correlate with the number of traffic collisions? People who
-are more aware of the correlations between weather and traffic
-collisions may be more aware and careful while driving and hopefully
-reduce the chance of getting into a collision themselves."),
+Seattle Area correlate with the number of traffic collisions?"),
   p(strong("2. "), "Is there a correlation between where pedestrians and cyclists
-are involved in accidents? Do they tend to happen at intersections? And
-what percentage of accidents involve an innocent civilian?"),
-  p(strong("3. "), "What hours/days have the highest risk of traffic collisions? We
-can use this data to advise safer driving habits or develop new
-technologies to deal with increased risk. This data can show the most
-dangerous time of day to be out. To see if more crashes happen during
-deemed \"rush hours\" or at night when drivers could be impaired."),
-  p(strong("4. "), "What areas had the highest rates of accidents where the driver
+are involved in accidents?"),
+  p(strong("3. "), "What areas had the highest rates of accidents where the driver
 was under the influence? Are there certain roads with significantly
-higher rates of DUI accidents? Policymakers and police can make
-decisions to redesign monitor areas with higher rates of DUI accidents.
-Better public transit options could be implemented as well to reduce the
-risk of DUI collisions."),
+higher rates of DUI accidents?"),
   
   #data set
   h3("Data Sets"),
-  p("write here"),
+  p("Having the information on every traffic collision in the metro area paired 
+  with the Seattle weather patterns allows us to create datasets to reveal patterns 
+  in the traffic that can answer where, when, and why collisions are happening."),
+  p("Sdot Collisions - All years: City of seattle open data portal. Seattle Open 
+    Data. (2022, August 20). Retrieved October 30, 2022, from 
+    https://data.seattle.gov/dataset/SDOT-Collisions-All-Years/9jdj-3h57"),
+  p("Tatman, R. (2017, December 20). Did it rain in Seattle? (1948-2017). Kaggle. 
+  Retrieved October 28, 2022, from 
+  https://www.kaggle.com/datasets/rtatman/did-it-rain-in-seattle-19482017?resource=download"),
   
   #expected implications
   h3("Expected Implications"),
@@ -376,30 +374,28 @@ great resource for us when we need assistance. We also thank you for being so un
   h3("References"),
   p("System, S. (2021, March 24). 5 cost-effective ways to reduce traffic
 crashes. Fleet Safety Training Blog. Retrieved October 31, 2022, from
-<https://blog.drivedifferent.com/blog/5-cost-effective-ways-to-reduce-traffic-crashes>
-Quarterly Vehicle Speed Report. WSDOT. (2022, July 29). Retrieved
+<https://blog.drivedifferent.com/blog/5-cost-effective-ways-to-reduce-traffic-crashes>"),
+  p("Quarterly Vehicle Speed Report. WSDOT. (2022, July 29). Retrieved
 October 31, 2022, from
-<https://wsdot.wa.gov/about/transportation-data/travel-data/traffic-count-data/quarterly-vehicle-speed-report>
-Sdot Collisions - All years: City of seattle open data portal. Seattle
+<https://wsdot.wa.gov/about/transportation-data/travel-data/traffic-count-data/quarterly-vehicle-speed-report>"),
+  p("Sdot Collisions - All years: City of seattle open data portal. Seattle
 Open Data. (2022, August 20). Retrieved October 30, 2022, from
-<https://data.seattle.gov/dataset/SDOT-Collisions-All-Years/9jdj-3h57>
-SeaTac, WA Weather History. Weather Underground. (2014-2022). TWC
+<https://data.seattle.gov/dataset/SDOT-Collisions-All-Years/9jdj-3h57>"),
+  p("SeaTac, WA Weather History. Weather Underground. (2014-2022). TWC
 Product and Technology. Retrieved October 31, 2022, from
-<https://www.wunderground.com/history/monthly/us/wa/seatac/KSEA/date/2022-01>
-Steinger, M. (2022, June 3). The 12 Most Common Causes of Car Accidents.
+<https://www.wunderground.com/history/monthly/us/wa/seatac/KSEA/date/2022-01>"),
+  p("Steinger, M. (2022, June 3). The 12 Most Common Causes of Car Accidents.
 Personal Injury Attorneys: Steinger, Greene and Feiner. Retrieved
 October 31, 2022, from
-<https://www.injurylawyers.com/blog/common-causes-car-accidents/>
-Tatman, R. (2017, December 20). Did it rain in Seattle? (1948-2017).
+<https://www.injurylawyers.com/blog/common-causes-car-accidents/>"),
+  p("Tatman, R. (2017, December 20). Did it rain in Seattle? (1948-2017).
 Kaggle. Retrieved October 28, 2022, from
-<https://www.kaggle.com/datasets/rtatman/did-it-rain-in-seattle-19482017?resource=download>
-WSDOT. (n.d.). Seattle, Seattle-Tacoma International Airport: Current
+<https://www.kaggle.com/datasets/rtatman/did-it-rain-in-seattle-19482017?resource=download>"),
+  p("WSDOT. (n.d.). Seattle, Seattle-Tacoma International Airport: Current
 Weather. Washington State Department of Transportation. Retrieved
 October 31, 2022, from <https://wsdot.com/travel/real-time/weather/1879>"),
 )
-
-
-
+  
 #finalized/simplified ui structure
 ui <- navbarPage(
   "Car Collisions in Seattle",

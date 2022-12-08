@@ -68,19 +68,21 @@ create_scatterplot <- function(weather_vs_collisions, min, max, checkbox, incide
   if (incident_type == "total_accidents") {
     string = "Accidents"
     yvar = "total_accidents"
+    max_height <- collisions_is_raining$total_accidents
   }
   if (incident_type == "total_injuries") {
     string = "Injuries"
     yvar = "total_injuries"
+    max_height <- collisions_is_raining$total_injuries
   }
   if (incident_type == "total_fatalities") {
     string = "Fatalities"
     yvar = "total_fatalities"
+    max_height <- collisions_is_raining$total_fatalities
   }
   if (checkbox == TRUE) {
     collisions_is_raining$is_raining <- 
       ifelse(collisions_is_raining$is_raining == "TRUE", "With Rain", "No Rain")
-    
     if_rain_chart <- 
       ggplot(collisions_is_raining, 
              aes(x = is_raining, y = !!sym(yvar))) + 
@@ -89,7 +91,7 @@ create_scatterplot <- function(weather_vs_collisions, min, max, checkbox, incide
       labs(title = paste(string, "Involved With and Without Precipitation"),
            y = paste("Number of ", string), 
            x = "Rainy Weather Forecast") + 
-      scale_y_continuous(expand=c(0, 0), limits=c(0, 120000))
+      scale_y_continuous(expand=c(0, 0), limits=c(0, max_height * 1.1))
       
     return(if_rain_chart)
   } else {
