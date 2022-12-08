@@ -9,20 +9,6 @@ Collision_Data <- SDOT_Collisions %>%
   na.omit() %>% 
   filter(ROADCOND == "Dry" | ROADCOND == "Wet" | ROADCOND == "Ice")
 
-#chart <- ggplot(Collision_Data)+
-#  geom_col(aes(x=ROADCOND, y=PEDCOUNT))+
-#  labs(title = "Seattle Collisions Involving Pedestrians", x = "Road Conditions", y = "# of Pedestrians")+
-#  theme_classic()
-
-#Bike_Collision_Data <- SDOT_Collisions %>% 
-#  select(ROADCOND, PEDCYLCOUNT) %>% 
-#  filter(ROADCOND == "Dry" | ROADCOND == "Wet" | ROADCOND == "Ice")
-
-#chart2 <- ggplot(Collision_Data)+
-#  geom_col(aes(x=ROADCOND, y=PEDCYLCOUNT)) +
-#  labs(title = "Seattle Collisions Involving Cyclists", x = "Road Conditions", y = "# of Cyclists")+
-#  theme_classic()
-
 chart <- function(Collision_data, ped_or_cycl) {
   if (ped_or_cycl == "Pedestrian") {
     title = "Pedestrians"
