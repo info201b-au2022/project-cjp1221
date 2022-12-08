@@ -187,7 +187,7 @@ report_panel <- tabPanel(
   "Report",
   
   # page title/heading
-  titlePanel("Exploring Car Collisions in Seattle:Report"),
+  titlePanel("Exploring Car Collisions in Seattle:"),
   #code name 
   h3("Code Name"),
   p("Crash Course"),
