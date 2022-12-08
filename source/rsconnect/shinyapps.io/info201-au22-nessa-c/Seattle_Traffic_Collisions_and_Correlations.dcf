@@ -5,9 +5,9 @@ account: info201-au22-nessa-c
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7851171
-bundleId: 6612623
+bundleId: 6612655
 url: https://info201-au22-nessa-c.shinyapps.io/Seattle_Traffic_Collisions_and_Correlations/
-when: 1670534869.22415
-lastSyncTime: 1670534869.2242
+when: 1670535199.71496
+lastSyncTime: 1670535199.71498
 asMultiple: FALSE
 asStatic: FALSE
