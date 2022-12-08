@@ -3,7 +3,7 @@ library(ggplot2)
 library(shiny)
 library(dplyr)
 library(plotly)
-SDOT_Collisions <- read.csv("../data/SDOT_collisions.csv", stringsAsFactors=FALSE)
+SDOT_Collisions <- read.csv("data/SDOT_collisions.csv", stringsAsFactors=FALSE)
 Collision_Data <- SDOT_Collisions %>%
   select(ROADCOND, PEDCOUNT, PEDCYLCOUNT) %>% 
   na.omit() %>% 

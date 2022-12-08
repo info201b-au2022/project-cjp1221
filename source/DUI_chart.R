@@ -2,8 +2,8 @@ library(tidyverse)
 library(ggplot2)
 library(leaflet)
 
-collisions <- read.csv("../data/SDOT_collisions.csv", stringsAsFactors = FALSE)
-joined <- read.csv("../data/seattle_collisions_weather_lat_long.csv", stringsAsFactors = FALSE)
+collisions <- read.csv("data/SDOT_collisions.csv", stringsAsFactors = FALSE)
+joined <- read.csv("data/seattle_collisions_weather_lat_long.csv", stringsAsFactors = FALSE)
 
 # account for some DUIs being labeled with 0/1 instead of N/Y
 joined["DUI"][joined["DUI"] == 1] <- "Y"
