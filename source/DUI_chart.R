@@ -9,7 +9,7 @@ joined <- read.csv("../data/seattle_collisions_weather_lat_long.csv", stringsAsF
 joined["DUI"][joined["DUI"] == 1] <- "Y"
 
 wrangle_data <- function(joined) {
-  #select variables - incdate, lat,long, location, underinfl
+  #select variables - key, date, lat,long, location, DUI
   new_df <- joined %>% 
     select(Incident.Key, Date, Location, DUI, Latitude, Longitude) %>%
     filter(DUI == "Y") %>% # filter for DUIs
