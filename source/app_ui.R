@@ -43,24 +43,34 @@ intro_panel <- tabPanel(
 #weather main content
 weather_main <- mainPanel(
   # plot output?
-  plotOutput("precipitation_chart"),
-  
+  plotOutput("scatter"),
+  p(),
   # written analysis 
   p(
-    "TEXT HERE",
+    "These charts show the correlation between car collisions and wet weather 
+    conditions. The factors we are analyzing are the total number of accidents, 
+    accidents involving fatalities, accidents involving injuries, and the amount 
+    of precipitation measured at the time of the accident. We also compare the 
+    number of accidents with and without wet weather conditions to see the if 
+    there is a correlation between car collisions and the weather. Policy makers 
+    and city planners can utilize these data visualizations and make decisions 
+    while considering the safety of Seattle commuters during the raining seasons, 
+    but without losing focus on the dry weather / slight raining conditions."
   )
 )
 
 #weather side content
 weather_side <- sidebarPanel(
   # sliderInput? or other feature
-  headerPanel('Precipitation vs. Car Collisions'),
   sliderInput("precipitation", "Amount of Precipitation (in):", 
-              min = 1, max = 4, value = 4, step = 0.1),
-  checkboxGroupInput("car_collision_", "Type of Car Collisions",
-                     c("Accidents" = "total_accidents",
-                       "Fatalities" = "total_fatalities",
-                       "Injuries" = "total_injuries"))
+              min = 0, max = 4, value = c(0, 4), step = 0.5),
+  checkboxInput("checkbox", 
+                label = "Show Incidents Without Precipitation (disables slider)", 
+                value = FALSE),
+  radioButtons("incident_type", "Type of Car Collisions",
+               choices = list("Accidents" = "total_accidents", 
+                              "Fatalities" = "total_fatalities",
+                              "Injuries" = "total_injuries"))
 )
 
 #weather tab full structure  
@@ -94,7 +104,6 @@ ped_cycle_side <- sidebarPanel(
   # sliderInput? or change
   radioButtons("graph", "Collision Type",
                choices = list("Pedestrian", "Cyclists")
-  
   )
 )
 

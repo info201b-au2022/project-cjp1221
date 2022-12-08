@@ -29,56 +29,78 @@ weather$DATE <- as.Date(weather$DATE, format = "%Y-%m-%d")
 
 # Joining weather and collision data
 weather_vs_collisions <- inner_join(weather, collisions_by_date, by = "DATE")
-number_of_collisions <- nrow(collisions)
-total_of_collisions_in_weather <-sum(weather_vs_collisions$total_accidents)
 
-# Total number of accidents to each month from 2004-2017
-collisions_by_month <- weather_vs_collisions %>%
-  group_by(months = floor_date(DATE, 'month')) %>%
-  summarize(total_accidents = sum(total_accidents))
-  
-# Total collisions during freezing temperatures
-weather_collisions_is_freezing <- weather_vs_collisions %>%
-  group_by(is_freezing = TMIN <= 32) %>%
-  summarize(total_accidents = sum(total_accidents)) %>%
-  na.omit()
-
-# Total collisions during rainy forecast
-weather_collisions_is_raining <- weather_vs_collisions %>%
+# Total collisions, injuries, and fatalities vs rainy forecast
+collisions_is_raining <- weather_vs_collisions %>%
   group_by(is_raining = RAIN == "TRUE") %>%
-  summarize(total_accidents = sum(total_accidents)) %>%
+  summarize(total_accidents = sum(total_accidents, na.rm = T),
+            total_fatalities = sum(total_fatalities, na.rm = T),
+            total_injuries = sum(total_injuries), na.rm = T) %>%
   na.omit()
   
 # Total collisions, injuries, and fatalities vs amount of precipitation
-weather_collisions_rain_amount <- weather_vs_collisions %>%
-  filter(PRCP > 1) %>%
+collisions_rain_amount <- weather_vs_collisions %>%
+  filter(PRCP > 0) %>%
   group_by(PRCP) %>%
   summarize(total_accidents = sum(total_accidents, na.rm = T), 
             total_fatalities = sum(total_fatalities, na.rm = T), 
             total_injuries = sum(total_injuries, na.rm = T))
 
-# Bar chart of collisions vs freezing temperatures
-freezing_chart <- 
-  ggplot(weather_collisions_is_freezing, 
-         aes(x = is_freezing, y = total_accidents)) + 
-  geom_col(fill = "#0073C2FF") +
-  geom_text(aes(label = total_accidents), vjust = -0.2, color = "black") +
-  labs(y = "# of Accidents", x = "Freezing Temperatures")
-
 # Bar chart of collisions vs rain
-raining_chart <- 
-  ggplot(weather_collisions_is_raining, 
-         aes(x = is_raining, y = total_accidents)) + 
-  geom_col(fill = "#0073C2FF") +
-  geom_text(aes(label = total_accidents), vjust = -0.2, color = "black") +
-  labs(y = "# of Accidents", x = "Rainy Weather Forecast")
+#raining_chart <- 
+#  ggplot(collisions_is_raining, 
+#         aes(x = is_raining, y = total_accidents)) + 
+#  geom_col(fill = "#0073C2FF") +
+#  geom_text(aes(label = total_accidents), vjust = -0.2, color = "black") +
+#  labs(y = "# of Accidents", x = "Rainy Weather Forecast")
 
 # Scatterplot of total collisions, injuries, and fatalities vs amount of precipitation
-precipitation_chart <-
-  ggplot(weather_collisions_rain_amount, aes(x = PRCP, y = value)) + 
-  geom_point(aes(y = total_accidents, col = "Total Accidents")) +
-  geom_point(aes(y = total_fatalities, col = "Total Fatalities")) +
-  geom_point(aes(y = total_injuries, col = "Total Injuries")) +
-  labs(y = "", x = "Amount of Precipitation (in)") +
-  ggtitle("Precipitation vs Collisions")
-  
+#precipitation_chart <-
+#  ggplot(collisions_rain_amount, aes(x = PRCP, y = value)) + 
+#  geom_point(aes(y = total_accidents, col = "Total Accidents")) +
+#  geom_point(aes(y = total_fatalities, col = "Total Fatalities")) +
+#  geom_point(aes(y = total_injuries, col = "Total Injuries")) +
+#  labs(y = "", x = "Amount of Precipitation (in)") +
+#  ggtitle("Precipitation vs Collisions")
+
+# Create Scatterplot function
+create_scatterplot <- function(weather_vs_collisions, min, max, checkbox, incident_type) {
+  if (incident_type == "total_accidents") {
+    string = "Accidents"
+    yvar = "total_accidents"
+  }
+  if (incident_type == "total_injuries") {
+    string = "Injuries"
+    yvar = "total_injuries"
+  }
+  if (incident_type == "total_fatalities") {
+    string = "Fatalities"
+    yvar = "total_fatalities"
+  }
+  if (checkbox == TRUE) {
+    collisions_is_raining$is_raining <- 
+      ifelse(collisions_is_raining$is_raining == "TRUE", "With Rain", "No Rain")
+    
+    if_rain_chart <- 
+      ggplot(collisions_is_raining, 
+             aes(x = is_raining, y = !!sym(yvar))) + 
+      geom_col(fill = "#0073C2FF") +
+      geom_text(aes(label = !!sym(yvar)), vjust = -1) +
+      labs(title = paste(string, "Involved With and Without Precipitation"),
+           y = paste("Number of ", string), 
+           x = "Rainy Weather Forecast") + 
+      scale_y_continuous(expand=c(0, 0), limits=c(0, 120000))
+      
+    return(if_rain_chart)
+  } else {
+    chart_data <- collisions_rain_amount %>%
+      filter(PRCP >= min, PRCP <= max)
+    
+    rain_chart <- ggplot(chart_data, aes(x = PRCP, y = !!sym(yvar))) + 
+      geom_point(aes(y = !!sym(yvar)), color = "#0073C2FF") +
+      labs(title = paste(string, "Involved with Precipitation"), 
+           y = paste("Number of ", string), 
+           x = "Amount of Precipitation (in) [Note: exludes 0 inches]")
+    return(rain_chart)
+  }
+}
