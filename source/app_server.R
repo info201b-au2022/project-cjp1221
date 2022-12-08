@@ -35,7 +35,7 @@ map_DUI <- function(total_DUI_collisions, num) {
       opacity = 0.75
     )
 }
-
+source("CollisionsWithPedestrians.R")
 
 
 # Start shinyServer
@@ -43,4 +43,13 @@ server <- function(input, output) {
   output$map <- renderLeaflet({
     return(map_DUI(total_DUI_collisions, input$num))
   })
+  output$graph <- renderPlot({
+    if(input$graph == "Pedestrian") {
+      ggplotly(chart)
+    }
+    else if (input$graph == "Cyclists") {
+      ggplotly(chart2)
+    }
+  })
+  
 }

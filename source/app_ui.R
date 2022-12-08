@@ -22,8 +22,8 @@ intro_panel <- tabPanel(
   #main questions:
   h5(strong("- How do weather conditions affect traffic?")),
   h5(strong("- Where did the highest frequencies of collisions occur?")),
-  h5(strong("- What proportion of incidences involved a pedistrian and
-    or cyclist?")),
+  h5(strong("- When Seattle drivers are getting in collisions how are they happening and 
+            who is being harmed?")),
   
   #instruction to explore website
   p(em('*Click on each tab to explore interative visualizations of the various 
@@ -75,19 +75,26 @@ weather_panel <- tabPanel(
 #main panel
 ped_cycle_main <- mainPanel(
   # plot output or other visualization
-  plotOutput("plot"),
+  plotOutput("graph"),
   
   # written analysis 
   p(
-    "TEXT HERE",
+    "These two graphs represent Seattle Collisions during certain road conditions. 
+    Tallying numbers from decades worth of Seattle collisions. We can see that dry road 
+    conditions has significantly more collisions than wet road conditions and icy road conditions 
+    are not within reach of either. This trend is both in collisions that involve pedestrians and 
+    collisions that involve cyclists. The lack of ice condition collisions can attested to the 
+    average lows in winter months being higher that 32 degrees fahrenheit, resulting in very few 
+    icy days. The Seattle community can hopefully learn how dangerous driving can be for pedestrians
+    and cyclists even in fair weather and to always be vigilant despite weather conditions.",
   )
 )
 #side panel 
 ped_cycle_side <- sidebarPanel(
   # sliderInput? or change
-  sliderInput(
-    inputId = "",
-    label = "", min = 0, max = 0, value = c(0, 0)
+  radioButtons("graph", "Collision Type",
+               choices = list("Pedestrian", "Cyclists")
+  
   )
 )
 
@@ -146,6 +153,11 @@ summary_takeaways_panel <- tabPanel(
   key takeaways in order to ensure that you, the reader, undertstand the patterns in our 
   report in the way that we intended. The most important conclusions we have made from 
     our data exploration of traffic collisions in the Seattle area are: "),
+  h4("One major takeaway about data in general is it always surprises you. I would have never 
+     guessed that a city like Seattle would have a higher number of dry accidents than wet ones. 
+    This disparity is the exact reason why data wrangling and data visualization exist, to uncover trends 
+     that we never thought would be there. Yet we also can confirm some of our theories including that 
+     Seattle's climate doesn't allow for many accidents in weather other than dry or wet."),
   
   h5(strong("- main")),
   h5(strong("- takeways")),
