@@ -20,8 +20,8 @@ intro_panel <- tabPanel(
     investigation is driven by key questions such as: "),
   
   #main questions:
-  h5(strong("- How do wet weather conditions affect traffic?")),
-  h5(strong("- When Seattle drivers are getting in collisions how are they happening and 
+  h5(strong("- How do wet weather conditions affect collision rates?")),
+  h5(strong("- When and how are Seattle drivers getting in collisions and 
             who is being harmed?")),
   h5(strong("- Where did the highest frequencies of collisions occur?")),
   
@@ -165,15 +165,13 @@ summary_takeaways_panel <- tabPanel(
   key takeaways in order to ensure that you, the reader, undertstand the patterns in our 
   report in the way that we intended. The most important conclusions we have made from 
     our data exploration of traffic collisions in the Seattle area are: "),
-  h5(strong("- One major takeaway about data in general is it always surprises you. I would have never 
-     guessed that a city like Seattle would have a higher number of dry accidents than wet ones. 
-    This disparity is the exact reason why data wrangling and data visualization exist, to uncover trends 
-     that we never thought would be there. Yet we also can confirm some of our theories including that 
-     Seattle's climate doesn't allow for many accidents in weather other than dry or wet.")),
-  h5(strong("- Another main takeaway we discovered from our analysis was that the among the accidents
-            that do happen on rainy days, most accidents occurred between forecasts of 0 - 2 inches of rain fall")),
-  h5(strong("- Finally, the last main takeaway from our data exploration is that instances of accidents
-            caused by drivers under the influence happened most frequently on I5 and the areas surrounding it. ")),
+  h5(strong("- Seattle has a higher number of collisions in dry
+            conditions than in wet ones")),
+  h5(strong("- Weather does not have a notable affect on rates of collisions
+            involving cyclists and pedestians")),
+  h5(strong("- Instances of accidents caused by drivers under the influence 
+            happened most frequently along the areas surrounding 
+            the Highway 99 and the central seattle area. ")),
   
   # image to add detail
   img(src = "https://www.pentaxforums.com/gallery/images/3274/1_Freeway_lights_6x9small.JPEGjpg.jpg", height = "80%", width = "95%"),
