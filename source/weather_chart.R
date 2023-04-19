@@ -4,7 +4,7 @@ library(ggplot2)
 library(lubridate)
 
 # Initializing datasets from "../data"
-weather <- read.csv("data/seattleWeather_1948-2017.csv", stringsAsFactors = FALSE)
+weather <- read.csv("data/seattleweather.csv", stringsAsFactors = FALSE)
 collisions <- read.csv("data/SDOT_Collisions.csv", stringsAsFactors = FALSE)
 
 # Setting date column for collisions dataset as date objects
